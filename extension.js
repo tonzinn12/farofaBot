@@ -1,20 +1,20 @@
 ////////////////////////////////////////////////////////////////////////////////////
-/// Bot Criado Por Farofinha                                                                                                 
-/// Edições e alguns comandos foram feitos por mim Everton.                                             
+/// Bot feito por -Farofa-                                                                                                  
+/// Edições e alguns comandos foram feitos por mim -Everton                                            
 ///////////////////////////////////////////////////////////////////////////////////
 easyBot = {
-comandoslink: "http://goo.gl/VwmK7e",
-contatolink: "http://goo.gl/D8je1l",
-awlink: "http://goo.gl/fAO7aY",
+comandoslink: "http://goo.gl/Koy0Fe",
+contatolink: "http://goo.gl/9DowgB",
+awlink: "http://goo.gl/naCPwx",
 blockskip: "on",
 rdjpromo: "off",
 versao: "2.0",
 fdpta: "on",
 };
-
-var Bot = {}; //    [Seunick]
-
-BehBot.roleta = {
+ 
+var Bot = {}; //    [Everton Flávio]
+ 
+easyBot.roleta = {
                 roletaStatus: true,
                 participants: [],
                 countdown : null,
@@ -35,21 +35,21 @@ BehBot.roleta = {
                     setTimeout(function(winner){
                         API.moderateMoveDJ(winner, pos, false);
                     }, 1*1000, winner, pos);
-
+ 
      },
 }
-
+ 
 Bot.admins =["Everton Flávio"];
-
-var botname = "BehBot";
-
+ 
+var botname = "Beh Bot";
+ 
 ////////////////////////////////////////////////////////////////////////////////
 API.sendChat(botname +" está ativo, use a função !comandos para ver os comandos do bot! :warning:");
 ////////////////////////////////////////////////////////////////////////////////
 var blockedSongs = [
     "MC"
 ];
-
+ 
 var blockedArtists = [
     "MC"
 ];
@@ -61,7 +61,7 @@ if (data == null)
 {
 return;
 }
-
+ 
 var title = data.media.title;
 var author = data.media.author;
 for (var i = 0; i < blockedSongs.length; i++)
@@ -191,10 +191,10 @@ if (message.indexOf("!") == 0) {
 API.moderateDeleteChat(chat);
 }
 ////////////////////////////////////////////////////////////////////////////////
-
+ 
 //Admins Commands
 // Permissions > 0 = Normal User, 1 = Bouncer, 2 = Manager, 3 = Co-Host
-
+ 
 if(data.message.indexOf('!') === 0){
 var msg = data.message, from = data.from, fromID = data.fromID;
 var command = msg.substring(1).split(' ')
@@ -219,13 +219,13 @@ API.off(API.CHAT,onChat2);
 API.off(API.CHAT, inte);
 API.off(API.VOTE_UPDATE, lecau);
 setTimeout (function() {
-$.getScript("https://github.com/tonzinn12/farofaBot/edit/master/extension.js");
+$.getScript("Coloque aqui o link aonde você hospedou este script!");
 }, 1500);
 }else{
 API.sendChat("@" + data.from + ", você não tem permissão para usar este comando.[+ Co anfitrião]");
 }
 break;
-
+ 
 case "desl":
 if(API.getUser(ID).permission > 2 || Bot.admins.indexOf(ID) > -1){
 API.sendChat(botname + " está agora offline. :warning:");
@@ -245,7 +245,7 @@ API.sendChat("@" + data.from + ", você não tem permissão para usar este coman
 }
 break;
 ////////////////////////////////////////////////////////////////////////////////
-
+ 
 ////////////////////////////////////////////////////////////////////////////////
 case "travar":
 if(API.getUser(ID).permission > 1 || Bot.admins.indexOf(ID) > -1){
@@ -280,7 +280,7 @@ easyBot.roleta.participants.push(data.fromID);
 }
 }
 break;
-              
+             
 case "sair":
 var ind = easyBot.roleta.participants.indexOf(data.fromID);
 if(ind > -1){
@@ -288,7 +288,7 @@ easyBot.roleta.participants.splice(ind, 1);
 API.sendChat("@" + data.from + " saiu da roleta! :warning:");
 }
 break;
-
+ 
 case "roleta":
 if(API.getUser(ID).permission > 2 || Bot.admins.indexOf(ID) > -1) {
 if(!easyBot.roleta.roletaStatus){
@@ -298,7 +298,7 @@ easyBot.roleta.startroleta();
 API.sendChat("@"+ data.from +" Você não tem permissão para usar este comando! [+Coordenador]");
 }
 break;
-
+ 
 case "stoproleta":
 if(API.getUser(ID).permission > 2 || Bot.admins.indexOf(ID) > -1) {
 if(easyBot.roleta.roletaStatus === true){
@@ -323,12 +323,12 @@ API.sendChat('['+ data.from +'] Entre na lista de espera antes de usar o !eta :w
 else
 {
 tempoRes = (210*wlPos)+rem;
-    
+   
 if(tempoRes < "6")
 {
 }
 else{
-API.sendChat("["+ data.from +"] Você será o dj em: " + SecondsToHMS(tempoRes)); 
+API.sendChat("["+ data.from +"] Você será o dj em: " + SecondsToHMS(tempoRes));
 }
 }
 break;
@@ -414,7 +414,7 @@ API.sendChat("/meMensagem de boas-vindas  [Desativado] :warning: ");
 API.sendChat("@" + data.from + ", você não tem permissão para usar este comando.[+ Co anfitrião]");
 }
 break;
-
+ 
 case "leave":
 if(API.getUser(ID).permission > 3 || Bot.admins.indexOf(ID) > -1){
 if (arg1 === "on") {
@@ -429,7 +429,7 @@ API.sendChat("/meMensagem de saída  [Desativado] :warning: ");
 API.sendChat("@" + data.from + ", você não tem permissão para usar este comando.[+ Co anfitrião]");
 }
 break;
-
+ 
 case "woot":
 $("#woot").click();
 break;
@@ -465,19 +465,19 @@ break;
 ////////////////////////////////////////////////////////////////////////////////
 //User Commands
 ////////////////////////////////////////////////////////////////////////////////
-
+ 
 case "djinfo":
 {
 var total = API.getDJ().djPoints + API.getDJ().listenerPoints + API.getDJ().curatorPoints;
 API.sendChat("DJ atual: "+ API.getDJ().username +". Pontos: "+ total +" | Fans: "+ API.getDJ().fans +" | Adds: "+ API.getDJ().curatorPoints +".");
 }
 break;
-
+ 
 case "pontos":
 case "points":
 API.sendChat ("@" + data.from +" :+1: "+ API.getUser(data.fromID).listenerPoints +" | :sound: "+ API.getUser(data.fromID).djPoints +" | :star: "+ API.getUser(data.fromID).curatorPoints +".");
 break;
-
+ 
 case "host":
 API.sendChat ("/me[" + data.from +"], o dono da sala é o @"+ API.getHost().username);
 break;
@@ -549,7 +549,7 @@ API.sendChat("@"+data.from+" "+tracks[0].permalink_url);
 });
 }
 break;
-
+ 
 ////////////////////////////////////////////////////////////////////////////////
 case "diz":
 if (API.getUser(data.fromID).permission > 1){
@@ -557,7 +557,7 @@ API.sendChat(command[1]);
 }
 break;
 ////////////////////////////////////////////////////////////////////////////////
-
+ 
 ////////////////////////////////////////////////////////////////////////////////
 case "aw":
 if(typeof command[1] == "@"){
@@ -579,7 +579,7 @@ case 0:
 API.sendChat("@"+command[1]+" clique no link e veja como usar auto-woot > "+ easyBot.awlink);
 break;
 }
-
+ 
 }
 break;
 ////////////////////////////////////////////////////////////////////////////////
@@ -603,10 +603,10 @@ case 0:
 API.sendChat("@"+data.from+" "+punirr[randomPunirr]+" @"+command[1]+" ");
 break;
 }
-
+ 
 }
 break;
-
+ 
 case "punir2":
 if(typeof command[1] == "@"){
 var crowd = API.getUsers();
@@ -627,7 +627,7 @@ case 0:
 API.sendChat("@"+data.from+" "+punir2[randomPunir2]+" @"+command[1]+" ");
 break;
 }
-
+ 
 }
 break;
 ////////////////////////////////////////////////////////////////////////////////
@@ -785,7 +785,7 @@ break;
 API.on(API.CHAT, inte);
 function inte(data){
 msg = data.message.toLowerCase();
-
+ 
 //Autowoot Link
 for(var i = 0; i < easyBotbot.awlink.length; i++){
 if(msg.indexOf(easyBotbot.awlink[i].toLowerCase()) > -1){
@@ -849,12 +849,12 @@ var boanoitebotRandom = Math.floor(Math.random() * easyBotbot.boanoitebot.length
 API.sendChat(easyBotbot.boanoitebot[boanoitebotRandom] +" @"+ data.from +" ");
 }
 }
-
+ 
 }//);
 ////////////////////////////////////////////////////////////////////////////////
-
+ 
 var users = API.getUsers();
-
+ 
 function getUserID(name) {
 for (var i in users) {
 if (users[i].username == name) {
@@ -863,11 +863,11 @@ return users[i].id;
 }
 return null;
 }
-
+ 
 API.on(API.CHAT,onChat2);
 function onChat2(data) {
 var message = "";
-
+ 
     var id = data.fromID;
     var msg = data.message;
     var userfrom = data.from;
@@ -879,10 +879,10 @@ var message = "";
     var arg2 = msg.split(" ")[2];
     var args = msg.substr(msg.indexOf(" ") + 1);
     var argsMotd = msg.substr(msg.indexOf(" ") + 5);
-	var ID = data.fromID;
-	var argname = arg1.slice(1, arg1.length);
-	var userid = getUserID(argname);
-	
+        var ID = data.fromID;
+        var argname = arg1.slice(1, arg1.length);
+        var userid = getUserID(argname);
+       
 if (cmd == "!add")
 if(API.getUser(ID).permission > 1 || Bot.admins.indexOf(ID) > -1){
 if (userid == null) {}else{
@@ -952,9 +952,9 @@ API.moderateRemoveDJ(userid);
 }else{
 API.sendChat("@" + data.from + ", você não tem permissão para usar este comando.[+ Segurança]");
 }
-
+ 
 }
-
+ 
 ////////////////////////////////////////////////////////////////////////////////
-
+ 
 ////////////////////////////////////////////////////////////////////////////////
