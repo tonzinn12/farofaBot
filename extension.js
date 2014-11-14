@@ -60,7 +60,7 @@
 
     
     localStorage.setItem("basicBotsettings", JSON.stringify({
-        botName: "FarofinhaBot",
+        botName: "BEH Bot",
         language: "portuguese",
         chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/pt.json",
         maximumAfk: 60,
